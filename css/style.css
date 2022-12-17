@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+/* Reset Básico */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.score{
+    position: absolute;
+    left: 45%;
+    font-family:'Press Start 2P'; 
+    text-align: center;
+}
+
+.game_board{
+    background: linear-gradient(#87ceeb,#e0f6ff);
+    border-bottom: 15px solid rgb(10, 134, 20);
+    height: 400px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.mario{
+    position: absolute;
+    width: 80px;
+    bottom: 0;
+}
+
+.pipe{
+    bottom: 0;
+    position: absolute;
+    width: 80px;
+    animation: pipe-animate 2s infinite linear;
+}
+
+.cloud{
+    animation: pipe-animate 10s infinite linear;
+    position: absolute;
+    right: -200px;
+    width: 300px;
+    top: 10px;
+}
+
+.jump{
+    animation: mario-jump 800ms ease-out;
+}
+
+@keyframes pipe-animate {
+    from{
+        right: -100px;
+    }
+    to{
+        right: 100%;
+    }
+}
+
+@keyframes mario-jump {
+    0%{
+        bottom: 0;
+    }
+    40%{
+        bottom: 30%;
+    }
+    50%{
+        bottom: 30%;
+    }
+    60%{
+        bottom: 30%;
+    }
+    100%{
+        bottom: 0;
+    }
+}
+@keyframes clouds-animate {
+    from{
+        right: -100px;
+    }
+    to{
+        right: 100%;
+    }
+}
