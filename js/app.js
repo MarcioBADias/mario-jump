@@ -17,13 +17,10 @@ const printScore = () => {
     counter.textContent = `${score} pontos`
 }
 
-
 const endGame = setInterval(() => {
     const pipePosition = pipe.offsetLeft;
     const marioPosition = +window.getComputedStyle(mario).bottom.replace('px', '');
     const jumpFail = pipePosition <= 60 && marioPosition <= 70;
-    const speed2 = score > 1200;
-    const speed3 = score > 3000;
     const stopPipe = () => {
         pipe.style.animation = 'none';
         pipe.style.left = `${pipePosition}px`;
@@ -42,13 +39,21 @@ const endGame = setInterval(() => {
         clearInterval(endGame);      
     }
 
-    if(speed2){
-        pipe.style.animation = 'pipe-animate 1500ms infinite linear'
+    if(score > 1500){
+        gameBoard.style.background = `linear-gradient(#4a6570,#41798f)`;
+        counter.style.color = `#e0f6ff`;
+    }
+    if(score > 2500){
+        gameBoard.style.background = `linear-gradient(#87ceeb,#e0f6ff)`;
+        counter.style.color = `#333`;
+        pipe.style.animation = `pipe-animate 1.5s infinite linear`;
+    }
+    if(score > 5000){
+        gameBoard.style.background = `linear-gradient(#87ceeb,#e0f6ff)`;
+        counter.style.color = `red`;
+        pipe.style.animation = `pipe-animate 1s infinite linear`;
     }
 
-    if(speed3){
-        pipe.style.animation = 'pipe-animate 1s infinite linear'
-    }
 }, 50);
 
 document.addEventListener('keydown', jumpMario);
